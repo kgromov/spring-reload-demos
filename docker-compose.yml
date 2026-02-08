@@ -6,3 +6,5 @@ services:
     ports:
       - '8500:8500'
     image: 'hashicorp/consul'
+    volumes:
+      - ./consul/data:/consul/data
