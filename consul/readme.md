@@ -63,6 +63,7 @@ This will allow the application to continue startup normally.
 
 ## git2consul with Config
 git2consul is a Consul community project that loads files from a git repository to individual keys into Consul.   
+**NOTE:** works ONLY on unix OS (at least does not work on Windows - but there is workaround - `wsl` 🙂).
 It's something similar to `spring-cloud-config` with git server type:   
 ```yaml
   spring:
@@ -74,6 +75,14 @@ It's something similar to `spring-cloud-config` with git server type:
               clone-on-start: true
               default-label: master
 ```
+In order to install:
+```
+ npm install -g git2consul
+```
+
+Then create configuration that points to git repository (or multiple repositories):
+``git2consul --config-file ./consul/git2consul.json``
+
 By default the names of the keys are names of the files. YAML and Properties files are supported with file extensions of .yml and .properties respectively.    
 Set the `spring.cloud.consul.config.format` property to `FILES`.   
 
